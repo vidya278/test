@@ -14,12 +14,11 @@ pipeline {
                 sh ('terraform init') 
             }
         }
-        
-        stage ("terraform Action") {
+         stage ("terraform plan") {
             steps {
-                echo "Terraform action is --> ${action}"
-                sh ('terraform ${action} --auto-approve') 
-           }
+                sh ('terraform plan') 
+            }
         }
+        
     }
 }
