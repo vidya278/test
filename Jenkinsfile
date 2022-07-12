@@ -16,7 +16,9 @@ pipeline {
         }
          stage ("terraform plan") {
             steps {
-                sh ('terraform plan') 
+                withAWS(credentials: 'sam-jenkins-demo-credentials'){
+                sh ('terraform plan')
+                }
             }
         }
         
